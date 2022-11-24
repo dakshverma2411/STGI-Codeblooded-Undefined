@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<ApplicationUser, UUID> {
+public interface UserRepository extends JpaRepository<ApplicationUser, Long> {
 
     @Query(
             "select u from ApplicationUser u where u.email = ?1"

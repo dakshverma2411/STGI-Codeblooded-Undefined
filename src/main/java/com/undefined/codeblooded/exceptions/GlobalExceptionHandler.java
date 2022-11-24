@@ -1,5 +1,6 @@
 package com.undefined.codeblooded.exceptions;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,5 +28,14 @@ public class GlobalExceptionHandler {
         res.put("msg", "Bad Request Structure");
         return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = JsonProcessingException.class)
+    public ResponseEntity<Map<String, Object>> jsonProcessingException(JsonProcessingException e){
+        Map<String, Object> res = new HashMap<>();
+        res.put("status", 400);
+        res.put("msg", "Bad Request Structure");
+        return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+    }
+
 
 }

@@ -31,6 +31,9 @@ public class JwtFilter implements Filter {
             ServletResponse response,
             FilterChain chain) throws IOException, ServletException {
 
+        chain.doFilter(request, response);
+        return;
+        /*
         HttpServletRequest req = (HttpServletRequest) request;
         if(Objects.equals(req.getRequestURI(), "/login")){
             chain.doFilter(request, response);
@@ -78,6 +81,8 @@ public class JwtFilter implements Filter {
             return;
         }
         return;
+
+         */
 
     }
 
